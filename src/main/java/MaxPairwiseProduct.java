@@ -5,16 +5,21 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class MaxPairwiseProduct {
-	static int getMaxPairwiseProduct(int[] numbers) {
-		int result = 0;
-		int n = numbers.length;
-		for (int i = 0; i < n; ++i) {
-			for (int j = i + 1; j < n; ++j) {
-				if (numbers[i] * numbers[j] > result) {
-					result = numbers[i] * numbers[j];
-				}
+	static long getMaxPairwiseProduct(int[] numbers) {
+		if (numbers.length == 1) {
+			return 0;
+		}
+		Integer maxIndex1 = null;
+		Integer maxIndex2 = null;
+		for (int i = 0; i < numbers.length; ++i) {
+			if (maxIndex1 == null || numbers[i] > numbers[maxIndex1]) {
+				maxIndex2 = maxIndex1;
+				maxIndex1 = i;
+			} else if (maxIndex2 == null || numbers[i] > numbers[maxIndex2]) {
+				maxIndex2 = i;
 			}
 		}
+		long result = ((long) (numbers[maxIndex1])) * numbers[maxIndex2];
 		return result;
 	}
 
