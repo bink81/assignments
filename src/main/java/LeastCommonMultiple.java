@@ -8,14 +8,14 @@ public class LeastCommonMultiple {
 		if (a == b) {
 			return a;
 		}
-		long smallerValue = a < b ? a : b;
-		long biggerValue = a < b ? b : a;
-		for (long i = 1; i < smallerValue * biggerValue; i++) {
-			if (i * smallerValue % biggerValue == 0) {
-				return i * smallerValue;
-			}
+		return (long) a * b / gcd(a, b);
+	}
+
+	private static int gcd(int a, int b) {
+		if (b == 0) {
+			return a;
 		}
-		return a * b;
+		return gcd(b, a % b);
 	}
 
 	public static void main(String args[]) {
