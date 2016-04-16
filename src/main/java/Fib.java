@@ -5,8 +5,15 @@ public class Fib {
 		if (n <= 1) {
 			return n;
 		}
-
-		return calc_fib(n - 1) + calc_fib(n - 2);
+		int previousLastNumber = 0;
+		int lastNumber = 1;
+		int tempNumber = 0;
+		for (int i = 2; i <= n; i++) {
+			tempNumber = lastNumber;
+			lastNumber = lastNumber + previousLastNumber;
+			previousLastNumber = tempNumber;
+		}
+		return lastNumber;
 	}
 
 	public static void main(String args[]) {

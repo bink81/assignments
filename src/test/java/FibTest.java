@@ -38,4 +38,11 @@ public class FibTest {
 
 		Assert.assertEquals(55, actual);
 	}
+
+	@Test
+	public void testMax() throws Exception {
+		long actual = Fib.calc_fib(45);
+
+		Assert.assertEquals(1134903170, actual);
+	}
 }
