@@ -1,11 +1,13 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class DotProduct {
-	private static long minDotProduct(int[] a, int[] b) {
-		// write your code here
+	public static long minDotProduct(int[] a, int[] b) {
+		Arrays.sort(a);
+		Arrays.sort(b);
 		long result = 0;
 		for (int i = 0; i < a.length; i++) {
-			result += a[i] * b[i];
+			result += a[i] * b[b.length - i - 1];
 		}
 		return result;
 	}
