@@ -29,4 +29,22 @@ public class DotProductTest {
 
 		Assert.assertEquals(-25, actual);
 	}
+
+	@Test
+	public void test12345() throws Exception {
+		int[] a = new int[] { 1, 2, 3, 4, 5 };
+		int[] b = new int[] { 1, 0, 1, 0, 1 };
+		long actual = DotProduct.minDotProduct(a, b);
+
+		Assert.assertEquals(6, actual);
+	}
+
+	@Test
+	public void testIntOverflow() throws Exception {
+		int[] a = new int[] { 999999999 };
+		int[] b = new int[] { 999999999 };
+		long actual = DotProduct.minDotProduct(a, b);
+
+		Assert.assertEquals(999999998000000001L, actual);
+	}
 }
